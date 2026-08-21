@@ -1,7 +1,8 @@
 {
-  "name": "manufacture-web",
-  "version": "1.2.0",
-  "author": "Your Company",
+  "name": "pixelara-industrial-web",
+  "version": "2.0.0",
+  "description": "Pixelara Industrial Power Transmission & Heavy Conveyor Drives Web Application",
+  "author": "Pixelara Industrial Solutions Inc.",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -9,6 +10,10 @@
     "start": "next start",
     "lint": "next lint --fix",
     "format": "prettier -w ."
+  },
+  "allowScripts": {
+    "@tailwindcss/oxide": true,
+    "sharp": true
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
