@@ -18,25 +18,25 @@ export default function ContactPage() {
         description="Connect directly with our application engineers for gear selection, dimensional verification, CAD drawings, and factory-direct commercial quotations."
       />
 
-      <main id="quote" className="scroll-mt-28 mx-auto max-w-[1440px] px-5 py-16 sm:px-8 lg:px-12">
-        <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
-          <div className="rounded-xl border border-white/10 bg-[#15191c] p-8 shadow-2xl h-fit">
-            <p className="text-xs font-mono text-[#f3a329] font-bold">COMMERCIAL &amp; TECH HEADQUARTERS</p>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white">
+      <main id="quote" className="scroll-mt-28 mx-auto max-w-[1440px] px-5 py-14 sm:px-8 lg:px-12">
+        <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
+          <div className="tech-card p-6 sm:p-8 h-fit">
+            <p className="text-[11px] font-mono text-[#f3a329] font-bold">COMMERCIAL &amp; TECH HEADQUARTERS</p>
+            <h2 className="mt-2 text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
               Get in Touch
             </h2>
-            <p className="mt-4 text-sm leading-7 text-[#a7adb3]">
+            <p className="mt-3 text-xs sm:text-sm leading-relaxed text-[#a7adb3]">
               Whether you require a single replacement SMSR unit or a complete overland conveyor drive system, our estimation team is ready to assist.
             </p>
 
-            <div className="mt-8 space-y-5 border-t border-white/10 pt-7 text-xs text-[#c1c6ca]">
+            <div className="mt-6 space-y-4 border-t border-white/10 pt-5 text-xs text-[#c1c6ca]">
               <div className="flex items-start gap-3">
                 <MapPin className="size-4 shrink-0 text-[#f3a329] mt-0.5" />
                 <span>
                   Pixelara Industrial Park, Heavy Machinery Zone, Sector 4, CA 90021
                 </span>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 font-mono">
                 <Phone className="size-4 shrink-0 text-[#f3a329]" />
                 <span>+1 (800) 555-PIXEL / +1 (213) 555-0199</span>
               </div>
@@ -46,11 +46,11 @@ export default function ContactPage() {
               </div>
               <div className="flex items-center gap-3">
                 <Clock className="size-4 shrink-0 text-[#f3a329]" />
-                <span>Mon - Fri: 08:00 - 18:00 EST (24/7 Emergency Support)</span>
+                <span>Mon - Fri: 08:00 - 18:00 EST (24/7 Support)</span>
               </div>
             </div>
 
-            <div className="mt-8 rounded bg-[#0b0d0e] p-4 text-xs text-[#a7adb3] flex items-center gap-2 border-l-2 border-[#f3a329]">
+            <div className="mt-6 rounded-md bg-[#0b0d0e] p-3.5 text-xs text-[#a7adb3] flex items-center gap-2.5 border-l-2 border-[#f3a329]">
               <Shield className="size-4 text-[#f3a329] shrink-0" />
               <span>Strict NDA &amp; commercial confidentiality assured on all engineering drawings.</span>
             </div>
@@ -62,3 +62,4 @@ export default function ContactPage() {
     </div>
   );
 }
+

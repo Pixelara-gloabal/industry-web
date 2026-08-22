@@ -73,42 +73,45 @@ export const FAQ = ({
   className2?: string;
 }) => {
   return (
-    <section className={cn("py-16 lg:py-24 bg-[#0b0d0e] text-white", className)}>
+    <section className={cn("py-14 lg:py-20 bg-[#0b0d0e] text-white", className)}>
       <div className="container max-w-5xl mx-auto px-5 sm:px-8">
-        <div className={cn("mx-auto grid gap-12 lg:grid-cols-[0.8fr_1.2fr]", className2)}>
-          <div className="space-y-4">
-            <span className="text-xs font-mono text-[#f3a329] font-bold">KNOWLEDGE BASE</span>
+        <div className={cn("mx-auto grid gap-10 lg:grid-cols-[0.8fr_1.2fr]", className2)}>
+          <div className="space-y-3">
+            <div className="status-pill mb-2">
+              <span className="indicator-pulse" />
+              <span>TECHNICAL KNOWLEDGE BASE</span>
+            </div>
             {headerTag === "h1" ? (
-              <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
+              <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
                 Frequently Asked Technical Questions
               </h1>
             ) : (
-              <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
+              <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
                 Frequently Asked Technical Questions
               </h2>
             )}
-            <p className="text-[#a7adb3] max-w-md leading-relaxed text-sm">
+            <p className="text-[#a7adb3] max-w-md leading-relaxed text-xs sm:text-sm">
               If your application parameters are not covered below, please{" "}
-              <Link href="/contact" className="text-[#f3a329] underline underline-offset-4">
+              <Link href="/contact" className="text-[#f3a329] underline underline-offset-4 hover:text-[#ffc368]">
                 contact our application engineering team directly
               </Link>
               .
             </p>
           </div>
 
-          <div className="grid gap-8 text-start">
+          <div className="grid gap-6 text-start">
             {categories.map((category, categoryIndex) => (
-              <div key={category.title} className="rounded-lg border border-white/10 bg-[#15191c] p-6">
-                <h3 className="text-sm font-bold text-[#f3a329] uppercase tracking-wider border-b border-white/10 pb-3">
+              <div key={category.title} className="tech-card p-5 sm:p-6">
+                <h3 className="text-xs font-mono font-bold text-[#f3a329] uppercase tracking-wider border-b border-white/10 pb-3">
                   {category.title}
                 </h3>
-                <Accordion type="single" collapsible className="w-full mt-2">
+                <Accordion type="single" collapsible className="w-full mt-1">
                   {category.questions.map((item, i) => (
                     <AccordionItem key={i} value={`${categoryIndex}-${i}`} className="border-white/10">
-                      <AccordionTrigger className="text-sm font-semibold text-white hover:text-[#f3a329] text-left">
+                      <AccordionTrigger className="text-xs sm:text-sm font-semibold text-white hover:text-[#f3a329] text-left py-3.5">
                         {item.question}
                       </AccordionTrigger>
-                      <AccordionContent className="text-xs leading-6 text-[#a7adb3]">
+                      <AccordionContent className="text-xs leading-relaxed text-[#a7adb3] pb-3">
                         {item.answer}
                       </AccordionContent>
                     </AccordionItem>
@@ -122,3 +125,4 @@ export const FAQ = ({
     </section>
   );
 };
+

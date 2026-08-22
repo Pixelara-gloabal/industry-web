@@ -51,10 +51,10 @@ export default function QualityPage() {
         action={{ label: "REQUEST QUALITY DOCUMENTATION", href: "/contact#quote" }}
       />
 
-      <main className="mx-auto max-w-[1440px] px-5 py-20 sm:px-8 lg:px-12">
+      <main className="mx-auto max-w-[1440px] px-5 py-14 sm:px-8 lg:px-12">
         {/* Metrology Laboratory Spotlight */}
-        <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-[#15191c] mb-16 shadow-2xl">
-          <div className="relative h-[380px] sm:h-[460px] w-full">
+        <div className="tech-card relative mb-12 sm:mb-16 shadow-2xl p-2.5">
+          <div className="relative h-[340px] sm:h-[440px] w-full overflow-hidden rounded-lg">
             <Image
               src="/images/industrial/quality-cmm.jpg"
               alt="Carl Zeiss 3D CMM Gear Metrology Laboratory at Pixelara Industrial"
@@ -63,22 +63,23 @@ export default function QualityPage() {
               className="object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0b0d0e] via-[#0b0d0e]/40 to-transparent" />
-            <div className="absolute bottom-8 left-8 right-8 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+            <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-5">
               <div className="max-w-2xl">
-                <span className="rounded bg-[#f3a329] px-3 py-1 text-xs font-black text-[#0b0d0e] tracking-widest uppercase">
-                  ADVANCED METROLOGY LAB
+                <span className="status-pill font-mono">
+                  <span className="indicator-pulse" />
+                  <span>ADVANCED METROLOGY LAB</span>
                 </span>
-                <h2 className="mt-3 text-2xl sm:text-4xl font-extrabold text-white">
+                <h2 className="mt-2.5 text-xl sm:text-3xl font-extrabold text-white">
                   Sub-Micron Precision Involute Gear Measurement
                 </h2>
-                <p className="mt-2 text-xs sm:text-sm text-gray-300">
+                <p className="mt-1.5 text-xs sm:text-sm text-gray-300">
                   Our Carl Zeiss PRISMO 3D coordinate measuring system verifies individual helical tooth pitch, runout, and surface flank profile to ISO 1328 Class 6 standards.
                 </p>
               </div>
 
               <Link
                 href="/contact#quote"
-                className="bg-[#f3a329] px-6 py-3 text-xs font-bold tracking-widest text-[#0b0d0e] hover:bg-[#ffc368] transition-colors rounded-sm shrink-0"
+                className="bg-[#f3a329] px-5 py-3 text-xs font-bold tracking-widest text-[#0b0d0e] hover:bg-[#ffc368] transition-colors rounded-md shrink-0 active:scale-95 cursor-pointer"
               >
                 REQUEST SAMPLE CMM REPORT
               </Link>
@@ -91,66 +92,67 @@ export default function QualityPage() {
           {qualityPillars.map(({ icon: Icon, title, copy }, index) => (
             <article
               key={title}
-              className="flex flex-col justify-between rounded-xl border border-white/10 bg-[#15191c] p-8 shadow-2xl transition-all duration-300 hover:border-[#f3a329]/40"
+              className="tech-card flex flex-col justify-between p-6 sm:p-7"
             >
               <div>
-                <span className="text-xs font-mono text-[#f3a329] font-bold">0{index + 1} / STAGE</span>
-                <Icon className="mt-6 size-8 text-[#f3a329]" />
-                <h2 className="mt-6 text-2xl font-bold tracking-tight text-white">{title}</h2>
-                <p className="mt-3 text-sm leading-6 text-[#a7adb3]">{copy}</p>
+                <span className="text-[11px] font-mono text-[#f3a329] font-bold">0{index + 1} / STAGE</span>
+                <Icon className="mt-4 size-7 text-[#f3a329]" />
+                <h2 className="mt-4 text-xl font-bold tracking-tight text-white">{title}</h2>
+                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#a7adb3]">{copy}</p>
               </div>
             </article>
           ))}
         </div>
 
         {/* Certifications Banner */}
-        <section className="mt-16 rounded-2xl border border-[#f3a329]/40 bg-[#15191c] p-8 sm:p-12 shadow-2xl">
+        <section className="tech-card mt-12 sm:mt-16 border-[#f3a329]/40 bg-[#15191c] p-6 sm:p-10 shadow-2xl">
           <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr] items-center">
             <div>
-              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-[#f3a329] uppercase">
-                <Award className="size-5" /> REGISTERED CERTIFICATIONS
+              <div className="status-pill mb-3">
+                <Award className="size-3.5" />
+                <span>REGISTERED CERTIFICATIONS</span>
               </div>
-              <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
                 International Compliance Standards
               </h2>
-              <p className="mt-4 text-sm leading-7 text-[#a7adb3]">
+              <p className="mt-3 text-xs sm:text-sm leading-relaxed text-[#a7adb3]">
                 Pixelara products conform strictly to international gear design and safety standards, ensuring seamless export compliance and inter-changeability with major OEM brands.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="rounded-lg border border-white/10 bg-[#0b0d0e] p-5">
-                <div className="flex items-center gap-2 text-[#f3a329] font-bold text-sm">
-                  <CheckCircle2 className="size-4" /> ISO 9001:2015
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              <div className="rounded-lg border border-white/10 bg-[#0b0d0e] p-4">
+                <div className="flex items-center gap-2 text-[#f3a329] font-bold text-xs font-mono">
+                  <CheckCircle2 className="size-3.5" /> ISO 9001:2015
                 </div>
-                <p className="mt-2 text-xs text-[#a7adb3]">
+                <p className="mt-1.5 text-xs text-[#a7adb3]">
                   Certified Quality Management System for Design, Manufacture, and Servicing of Power Transmissions.
                 </p>
               </div>
 
-              <div className="rounded-lg border border-white/10 bg-[#0b0d0e] p-5">
-                <div className="flex items-center gap-2 text-[#f3a329] font-bold text-sm">
-                  <CheckCircle2 className="size-4" /> CE Machinery Directive
+              <div className="rounded-lg border border-white/10 bg-[#0b0d0e] p-4">
+                <div className="flex items-center gap-2 text-[#f3a329] font-bold text-xs font-mono">
+                  <CheckCircle2 className="size-3.5" /> CE Machinery Directive
                 </div>
-                <p className="mt-2 text-xs text-[#a7adb3]">
+                <p className="mt-1.5 text-xs text-[#a7adb3]">
                   European Conformity marking for Machinery Directive 2006/42/EC safety standards.
                 </p>
               </div>
 
-              <div className="rounded-lg border border-white/10 bg-[#0b0d0e] p-5">
-                <div className="flex items-center gap-2 text-[#f3a329] font-bold text-sm">
-                  <CheckCircle2 className="size-4" /> ATEX Zone 22 Dust Proof
+              <div className="rounded-lg border border-white/10 bg-[#0b0d0e] p-4">
+                <div className="flex items-center gap-2 text-[#f3a329] font-bold text-xs font-mono">
+                  <CheckCircle2 className="size-3.5" /> ATEX Zone 22 Dust Proof
                 </div>
-                <p className="mt-2 text-xs text-[#a7adb3]">
+                <p className="mt-1.5 text-xs text-[#a7adb3]">
                   Certified dust explosion proof enclosures for coal, grain, and hazardous material plants.
                 </p>
               </div>
 
-              <div className="rounded-lg border border-white/10 bg-[#0b0d0e] p-5">
-                <div className="flex items-center gap-2 text-[#f3a329] font-bold text-sm">
-                  <CheckCircle2 className="size-4" /> AGMA 2001 &amp; ISO 1328
+              <div className="rounded-lg border border-white/10 bg-[#0b0d0e] p-4">
+                <div className="flex items-center gap-2 text-[#f3a329] font-bold text-xs font-mono">
+                  <CheckCircle2 className="size-3.5" /> AGMA 2001 &amp; ISO 1328
                 </div>
-                <p className="mt-2 text-xs text-[#a7adb3]">
+                <p className="mt-1.5 text-xs text-[#a7adb3]">
                   Gear geometry, load rating, and tooth surface contact stress calculations per AGMA 2001 standards.
                 </p>
               </div>
@@ -161,3 +163,4 @@ export default function QualityPage() {
     </div>
   );
 }
+

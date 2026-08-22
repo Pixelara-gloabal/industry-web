@@ -1,169 +1,155 @@
-import Image from "next/image";
-import Link from "next/link";
+"use client";
 
+import { Award, CheckCircle2, Cpu, ShieldCheck, Sparkles, Wrench, Shield, Check } from "lucide-react";
 import Marquee from "react-fast-marquee";
 
-import { cn } from "@/lib/utils";
-
-type Company = {
+type Certification = {
+  code: string;
   name: string;
-  logo: string;
-  width: number;
-  height: number;
-  href: string;
+  category: string;
+  stampId: string;
+  status: string;
+  icon: typeof ShieldCheck;
 };
 
 export const Logos = () => {
-  const topRowCompanies = [
+  const certifications: Certification[] = [
     {
-      name: "Mercury",
-      logo: "/logos/mercury.svg",
-      width: 143,
-      height: 26,
-      href: "https://mercury.com",
+      code: "ISO 9001:2015",
+      name: "Quality Management Certified",
+      category: "Heavy Manufacturing",
+      stampId: "REG # QA-9001-8492",
+      status: "TÜV AUDITED",
+      icon: ShieldCheck,
     },
     {
-      name: "Watershed",
-      logo: "/logos/watershed.svg",
-      width: 154,
-      height: 31,
-      href: "https://watershed.com",
+      code: "CE DIRECTIVE",
+      name: "2006/42/EC Machinery Safety",
+      category: "European Conformity",
+      stampId: "EU TYPE APPROVAL",
+      status: "VERIFIED",
+      icon: Award,
     },
     {
-      name: "Retool",
-      logo: "/logos/retool.svg",
-      width: 113,
-      height: 22,
-      href: "https://retool.com",
+      code: "ATEX ZONE 22",
+      name: "Dust Ignition-Proof Enclosures",
+      category: "Ex II 3D Ex tc IIIC",
+      stampId: "EN 60079-31",
+      status: "HAZLOC SAFE",
+      icon: Sparkles,
     },
     {
-      name: "Descript",
-      logo: "/logos/descript.svg",
-      width: 112,
-      height: 27,
-      href: "https://descript.com",
-    },
-  ];
-
-  const bottomRowCompanies = [
-    {
-      name: "Perplexity",
-      logo: "/logos/perplexity.svg",
-      width: 141,
-      height: 32,
-      href: "https://perplexity.com",
+      code: "AGMA 6013-A06",
+      name: "Enclosed Industrial Gear Drives",
+      category: "Gear Rating Standard",
+      stampId: "AGMA CLASS 1-12",
+      status: "RATED",
+      icon: Cpu,
     },
     {
-      name: "Monzo",
-      logo: "/logos/monzo.svg",
-      width: 104,
-      height: 18,
-      href: "https://monzo.com",
+      code: "DIN 3990 / ISO 6336",
+      name: "Helical Gear Tooth Durability",
+      category: "Involute Flank Rating",
+      stampId: "58-62 HRC CASE",
+      status: "CALCULATED",
+      icon: Wrench,
     },
     {
-      name: "Ramp",
-      logo: "/logos/ramp.svg",
-      width: 105,
-      height: 28,
-      href: "https://ramp.com",
+      code: "EN 10204 3.1",
+      name: "Material Test & Heat Traceability",
+      category: "Metallurgy Inspection",
+      stampId: "BATCH TEST CERTS",
+      status: "TRACEABLE",
+      icon: CheckCircle2,
     },
     {
-      name: "Raycast",
-      logo: "/logos/raycast.svg",
-      width: 128,
-      height: 33,
-      href: "https://raycast.com",
+      code: "CARL ZEISS CMM",
+      name: "ISO 1328 Class 6 Metrology",
+      category: "Sub-Micron Flank Scan",
+      stampId: "PRISMO 3D SCAN",
+      status: "100% CMM",
+      icon: ShieldCheck,
     },
     {
-      name: "Arc",
-      logo: "/logos/arc.svg",
-      width: 90,
-      height: 28,
-      href: "https://arc.com",
+      code: "ISO 1940-1 G6.3",
+      name: "Dynamic Balancing Precision",
+      category: "Conveyor Pulley Rotors",
+      stampId: "BALANCED < 6.3 mm/s",
+      status: "BALANCED",
+      icon: Shield,
     },
   ];
 
   return (
-    <section className="pb-28 lg:pb-32 overflow-hidden">
-      <div className="container space-y-10 lg:space-y-16">
-        <div className="text-center">
-          <h2 className="mb-4 text-xl text-balance md:text-2xl lg:text-3xl">
-            Powering the world's best product teams.
-            <br className="max-md:hidden" />
-            <span className="text-muted-foreground">
-              From next-gen startups to established enterprises.
+    <section className="relative border-y border-white/10 bg-[#0f1214] py-7 sm:py-8 overflow-hidden">
+      {/* Background hairline glow */}
+      <div className="absolute inset-0 technical-grid opacity-15 pointer-events-none" />
+
+      <div className="mx-auto max-w-[1440px] px-5 sm:px-8 mb-5 relative z-10">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+          <div className="flex items-center gap-2.5">
+            <span className="relative flex size-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#f3a329] opacity-75" />
+              <span className="relative inline-flex rounded-full size-2 bg-[#f3a329]" />
             </span>
-          </h2>
-        </div>
-
-        <div className="flex w-full flex-col items-center gap-8">
-          {/* Top row - 4 logos */}
-          <LogoRow companies={topRowCompanies} gridClassName="grid-cols-4" />
-
-          {/* Bottom row - 5 logos */}
-          <LogoRow
-            companies={bottomRowCompanies}
-            gridClassName="grid-cols-5"
-            direction="right"
-          />
+            <p className="text-[11px] font-mono font-bold tracking-[0.16em] text-[#f3a329] uppercase">
+              REGISTERED INDUSTRIAL STANDARDS &amp; METROLOGY CERTIFICATIONS
+            </p>
+          </div>
+          <div className="flex items-center gap-3 text-[10px] font-mono text-[#a7adb3]">
+            <span className="flex items-center gap-1 text-white/80">
+              <Check className="size-3 text-[#f3a329]" /> 100% Unit Batch Tested
+            </span>
+            <span className="text-white/20">|</span>
+            <span className="flex items-center gap-1 text-white/80">
+              <Check className="size-3 text-[#f3a329]" /> EN 10204 3.1 Traceable
+            </span>
+          </div>
         </div>
       </div>
+
+      <Marquee speed={32} pauseOnHover gradient={true} gradientColor="#0f1214" gradientWidth={60}>
+        <div className="flex items-center gap-5 pr-5">
+          {certifications.map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={idx}
+                className="group relative flex items-center gap-3.5 rounded-lg border border-white/10 bg-[#15191c]/90 px-4 py-3 text-white transition-all duration-200 hover:border-[#f3a329]/60 hover:bg-[#1a1f23] hover:shadow-lg hover:shadow-[#f3a329]/10"
+              >
+                {/* Specular highlight on badge top border */}
+                <div className="absolute top-0 left-3 right-3 h-[1px] bg-gradient-to-r from-transparent via-[#f3a329]/30 to-transparent group-hover:via-[#f3a329]/80 transition-all" />
+
+                {/* Badge Icon Emblem */}
+                <div className="grid size-9 place-items-center rounded-md border border-[#f3a329]/20 bg-[#f3a329]/10 text-[#f3a329] group-hover:bg-[#f3a329] group-hover:text-[#0b0d0e] transition-colors shrink-0">
+                  <Icon className="size-4.5" />
+                </div>
+
+                {/* Badge Details */}
+                <div className="min-w-[170px]">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="font-mono text-xs font-bold text-white tracking-tight">
+                      {item.code}
+                    </span>
+                    <span className="rounded bg-[#f3a329]/10 border border-[#f3a329]/20 px-1.5 py-0.5 text-[8px] font-mono font-bold text-[#f3a329]">
+                      {item.status}
+                    </span>
+                  </div>
+                  <p className="text-[11px] font-medium text-[#c1c6ca] truncate max-w-[190px]">
+                    {item.name}
+                  </p>
+                  <div className="mt-1 flex items-center justify-between text-[9px] font-mono text-[#8a9197]">
+                    <span>{item.category}</span>
+                    <span className="text-[#a7adb3] font-semibold">{item.stampId}</span>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </Marquee>
     </section>
   );
 };
 
-type LogoRowProps = {
-  companies: Company[];
-  gridClassName: string;
-  direction?: "left" | "right";
-};
 
-const LogoRow = ({ companies, gridClassName, direction }: LogoRowProps) => {
-  return (
-    <>
-      {/* Desktop static version */}
-      <div className="hidden md:block">
-        <div
-          className={cn(
-            "grid items-center justify-items-center gap-x-20 lg:gap-x-28",
-            gridClassName,
-          )}
-        >
-          {companies.map((company, index) => (
-            <Link href={company.href} target="_blank" key={index}>
-              <Image
-                src={company.logo}
-                alt={`${company.name} logo`}
-                width={company.width}
-                height={company.height}
-                className="dark:opacity/100 object-contain opacity-50 transition-opacity hover:opacity-70 dark:invert"
-              />
-            </Link>
-          ))}
-        </div>
-      </div>
-
-      {/* Mobile marquee version */}
-      <div className="md:hidden">
-        <Marquee direction={direction} pauseOnHover>
-          {companies.map((company, index) => (
-            <Link
-              href={company.href}
-              target="_blank"
-              key={index}
-              className="mx-8 inline-block transition-opacity hover:opacity-70"
-            >
-              <Image
-                src={company.logo}
-                alt={`${company.name} logo`}
-                width={company.width}
-                height={company.height}
-                className="object-contain"
-              />
-            </Link>
-          ))}
-        </Marquee>
-      </div>
-    </>
-  );
-};

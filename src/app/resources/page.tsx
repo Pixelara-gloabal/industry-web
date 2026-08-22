@@ -53,22 +53,22 @@ export default function ResourcesPage() {
         action={{ label: "REQUEST CUSTOM CAD DRAWINGS", href: "/contact#quote" }}
       />
 
-      <main className="mx-auto max-w-[1440px] px-5 py-20 sm:px-8 lg:px-12">
-        <div className="space-y-12">
+      <main className="mx-auto max-w-[1440px] px-5 py-14 sm:px-8 lg:px-12">
+        <div className="space-y-10">
           {resourceCategories.map((cat, idx) => {
             const Icon = cat.icon;
             return (
               <section
                 key={idx}
-                className="rounded-xl border border-white/10 bg-[#15191c] p-8 sm:p-10 shadow-2xl"
+                className="tech-card p-6 sm:p-8"
               >
                 <div className="flex items-center gap-3">
                   <Icon className="size-6 text-[#f3a329]" />
-                  <h2 className="text-2xl font-bold tracking-tight text-white">{cat.title}</h2>
+                  <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white">{cat.title}</h2>
                 </div>
-                <p className="mt-3 text-sm text-[#a7adb3] max-w-2xl">{cat.description}</p>
+                <p className="mt-2 text-xs sm:text-sm text-[#a7adb3] max-w-2xl">{cat.description}</p>
 
-                <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {cat.files.map((file, fIdx) => (
                     <div
                       key={fIdx}
@@ -76,13 +76,13 @@ export default function ResourcesPage() {
                     >
                       <div>
                         <p className="font-bold text-white line-clamp-1">{file.name}</p>
-                        <span className="text-gray-400">
+                        <span className="text-gray-400 font-mono text-[11px]">
                           {file.format} • {file.size}
                         </span>
                       </div>
                       <Link
                         href="/contact#quote"
-                        className="p-2.5 rounded bg-[#f3a329]/10 text-[#f3a329] hover:bg-[#f3a329] hover:text-[#0b0d0e] transition-colors shrink-0"
+                        className="p-2.5 rounded-md bg-[#f3a329]/10 text-[#f3a329] hover:bg-[#f3a329] hover:text-[#0b0d0e] transition-colors shrink-0"
                         title="Download Document"
                       >
                         <Download className="size-4" />
@@ -95,11 +95,11 @@ export default function ResourcesPage() {
           })}
         </div>
 
-        <div className="mt-16 text-center">
-          <p className="text-sm text-[#a7adb3]">Need specific gear ratio calculations or custom CAD formats?</p>
+        <div className="mt-14 text-center">
+          <p className="text-xs sm:text-sm text-[#a7adb3]">Need specific gear ratio calculations or custom CAD formats?</p>
           <Link
             href="/contact#quote"
-            className="mt-4 inline-flex items-center gap-2 text-xs font-bold tracking-widest text-[#f3a329] hover:text-[#ffc368]"
+            className="mt-3 inline-flex items-center gap-2 text-xs font-bold tracking-widest text-[#f3a329] hover:text-[#ffc368]"
           >
             CONTACT OUR APPLICATION ENGINEERING TEAM <ArrowRight className="size-4" />
           </Link>
@@ -108,3 +108,4 @@ export default function ResourcesPage() {
     </div>
   );
 }
+
